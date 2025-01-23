@@ -5,13 +5,13 @@ import {
     SidebarProvider,
 } from "@/components/ui/sidebar"
 
-export default function Page({ children }: { children: React.ReactNode }) {
+export default function Layout({ children }: { children: React.ReactNode }) {
     return (
         <DropzoneProvider>
             <SidebarProvider>
                 <AppSidebar />
                 <SidebarInset>
-                    <div className="flex flex-1 flex-col gap-4">
+                    <div className="flex flex-1 flex-col">
                         {children}
                     </div>
                 </SidebarInset>

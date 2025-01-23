@@ -9,8 +9,7 @@ let nodeId = 1;
 export const flowlize = (raw_json: object): FlowSchema => {
     const nodes: any[] = [];
     const edges: any[] = [];
-    raw_json = { data: raw_json }
-
+    raw_json = { root: raw_json }
     const processObject = (obj: any, label: string, parentId: string | null = null, type = "object") => {
         const currentId = (nodeId++).toString();
         const nodeData: any = { label, type, data: {} };
@@ -21,7 +20,6 @@ export const flowlize = (raw_json: object): FlowSchema => {
             position: { x: 0, y: 0 },
         };
         nodes.push(currentNode);
-
         if (parentId) {
             edges.push({
                 id: `e${parentId}-${currentId}`,
@@ -30,7 +28,6 @@ export const flowlize = (raw_json: object): FlowSchema => {
                 type: 'smoothstep',
             });
         }
-
         for (const [key, value] of Object.entries(obj)) {
             let type = "object"
             if (
@@ -41,10 +38,13 @@ export const flowlize = (raw_json: object): FlowSchema => {
             ) {
                 nodeData["data"][key] = value;
             } else if (Array.isArray(value)) {
-                nodeData["data"][key] = `Array [${value.length} items]`;
+                nodeData["data"][key] = [`Array [${value.length} items]`];
                 type = "array"
+                for (const [index, item] of value.entries()) {
+                    processObject({ [index]: item }, nodeData["data"][key], currentId, type);
+                }
             } else if (typeof value === "object") {
-                nodeData["data"][key] = `Object (${Object.keys(value).length} keys)`;
+                nodeData["data"][key] = { value: `Object (${Object.keys(value).length} keys)` };
                 type = "object"
                 processObject(value, key, currentId, type);
             }

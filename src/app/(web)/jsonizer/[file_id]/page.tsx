@@ -20,13 +20,23 @@ import {
     SidebarTrigger,
 } from "@/components/ui/sidebar"
 import { Button } from '@/components/ui/button'
+import { cn } from '@/lib/utils'
 
-const page = () => {
-    const { fileContents } = useDropzoneContext()
+const Page = () => {
+    const { fileContents, isDragActive } = useDropzoneContext()
     const [view, setView] = useQueryState("view", { defaultValue: "flow" })
     const { file_id } = useParams()
     const file = React.useMemo(() => fileContents.find((file) => file.id === file_id), [fileContents, file_id]);
-    if (!file) return <div className='p-2'>loading...</div>
+    if (!file) return <div className={cn('h-full w-full p-24 flex flex-col items-center justify-center')}>
+        <div className={cn('h-full border-4 border-dotted overflow-hidden relative w-full rounded-xl flex flex-col items-center justify-center', isDragActive && "border-primary")}>
+            <span className='text-5xl font-bold'>404</span><span className='text-xl italic text-primary/60'>Not found</span>
+            <span className='mt-4'>Could not find the json document with id:</span>
+            <span className='border border-primary-80 bg-primary/30 text-primary rounded-full px-2 mt-1'>{JSON.stringify(file_id)}</span>
+            <div className={cn('absolute inset-0 flex items-center justify-center bg-primary/10 backdrop-blur-sm duration-300', isDragActive ? "opacity-100" : "opacity-0")}>
+                <span className='text-xl font-semibold'> Oh ! Drop it, let&apos;s see it !</span>
+            </div>
+        </div>
+    </div>
     const schema = flowlize(file.content)
     return (
         <>
@@ -47,8 +57,8 @@ const page = () => {
                     </Breadcrumb>
                 </div>
                 <div className='flex p-1 rounded-lg gap-1 bg-foreground/10 items-center'>
-                    <Button size={"sm"} variant={view === "flow" ? "ghost" : "default"} onClick={() => setView("code")}>Code view</Button>
-                    <Button size={"sm"} variant={view === "code" ? "ghost" : "default"} onClick={() => setView("flow")}>Flow view</Button>
+                    <Button className='h-6' variant={view === "flow" ? "ghost" : "default"} onClick={() => setView("code")}>Code view</Button>
+                    <Button className='h-6' variant={view === "code" ? "ghost" : "default"} onClick={() => setView("flow")}>Flow view</Button>
                 </div>
             </header> {view === "flow" ?
                 <Flow file={file} nodes={schema.nodes} edges={schema.edges} /> :
@@ -57,4 +67,4 @@ const page = () => {
         </>
     )
 }
-export default page
+export default Page

@@ -1,6 +1,6 @@
 "use client"
 import * as React from "react"
-import { ChevronRight, File, Folder } from "lucide-react"
+import { ChevronRight, File, Folder, TrashIcon } from "lucide-react"
 
 import {
   Collapsible,
@@ -14,7 +14,6 @@ import {
   SidebarGroupContent,
   SidebarGroupLabel,
   SidebarMenu,
-  SidebarMenuBadge,
   SidebarMenuButton,
   SidebarMenuItem,
   SidebarMenuSub,
@@ -23,6 +22,7 @@ import {
 import { useDropzoneContext } from "./dropzone/dropzone-provider"
 import Link from "next/link"
 import { ModeToggle } from "./mode-toggle"
+import { Button } from "./ui/button"
 
 
 
@@ -51,12 +51,16 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
         </SidebarGroup>
         <SidebarRail />
       </SidebarContent>
-      <ModeToggle />
+      <div className="p-2 text-end"><ModeToggle /></div>
     </Sidebar>
   )
 }
 
 function Tree({ data }: { data: any }) {
+  const { setFileContents } = useDropzoneContext()
+  const handleDeleteItem = (id: string) => {
+    setFileContents((prev: any[]) => prev.filter((a) => a.id !== id))
+  }
   return (
     <SidebarMenuItem>
       <Collapsible
@@ -73,13 +77,16 @@ function Tree({ data }: { data: any }) {
         <CollapsibleContent>
           <SidebarMenuSub>
             {data.items.map((subItem: any) => (
-              <SidebarMenuButton
-                key={subItem.id}
-                className="data-[active=true]:bg-transparent"
-              >
-                <File />
-                <Link href={`/jsonizer/${subItem?.id}`} className="">{subItem?.name}</Link>
-              </SidebarMenuButton>
+              <div key={subItem.id}
+                className="flex items-center gap-1">
+                <SidebarMenuButton
+                  className="data-[active=true]:bg-transparent"
+                >
+                  <File />
+                  <Link href={`/jsonizer/${subItem?.id}`} className="">{subItem?.name}</Link>
+                </SidebarMenuButton>
+                <Button onClick={() => handleDeleteItem(subItem?.id)} size={"icon"} variant={"ghost"}><TrashIcon className="h-2 w-2" /></Button>
+              </div>
             ))}
           </SidebarMenuSub>
         </CollapsibleContent>

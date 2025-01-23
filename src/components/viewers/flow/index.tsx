@@ -33,17 +33,19 @@ const getLayoutedElements = (nodes: any, edges: any, options = {}) => {
     const graph = {
         id: 'root',
         layoutOptions: options,
-        children: nodes.map((node: any) => ({
-            ...node,
-            // Adjust the target and source handle positions based on the layout
-            // direction.
-            targetPosition: isHorizontal ? 'left' : 'top',
-            sourcePosition: isHorizontal ? 'right' : 'bottom',
+        children: nodes.map((node: any) => {
+            return ({
+                ...node,
+                // Adjust the target and source handle positions based on the layout
+                // direction.
+                targetPosition: isHorizontal ? 'left' : 'top',
+                sourcePosition: isHorizontal ? 'right' : 'bottom',
 
-            // Hardcode a width and height for elk to use when layouting.
-            width: 350,
-            height: 210,
-        })),
+                // Hardcode a width and height for elk to use when layouting.
+                width: 330,
+                height: 50 + Object.keys(node.data.data).length * 24,
+            })
+        }),
         edges: edges,
     };
 
@@ -68,7 +70,7 @@ function Flow({ nodes: initialNodes, edges: initialEdges }: { nodes: any, edges:
 
     const onConnect = useCallback(
         (params: any) => setEdges((eds) => addEdge(params, eds)),
-        [],
+        [setEdges]
     );
     const onLayout = useCallback(
         ({ direction, useInitialNodes = false }: { direction: any, useInitialNodes: boolean }) => {
@@ -87,44 +89,48 @@ function Flow({ nodes: initialNodes, edges: initialEdges }: { nodes: any, edges:
                 },
             );
         },
-        [nodes, edges],
+        // @ts-ignore
+        [],
     );
 
     useLayoutEffect(() => {
         onLayout({ direction: 'RIGHT', useInitialNodes: true });
-    }, []);
+    }, [onLayout]);
 
     return (
         <ReactFlow
+            className='p-0'
             nodes={nodes}
             edges={edges}
             onConnect={onConnect}
             onNodesChange={onNodesChange}
             onEdgesChange={onEdgesChange}
             fitView
+            proOptions={{ hideAttribution: true }}
             nodeTypes={nodeTypes}
         >
-            <Panel position="top-right">
-                <div className='flex items-center gap-3'>
+            <Panel className='bg-background shadow rounded-md border border-foreground/5' position="top-right">
+                <div className='flex items-center divide-x px-1 py-1'>
                     {/* @ts-ignore */}
-                    <button onClick={() => onLayout({ direction: 'DOWN' })}>
-                        vertical layout
+                    <button className='px-2' onClick={() => onLayout({ direction: 'DOWN' })}>
+                        <span className='opacity-60 text-sm'>vertical</span>
                     </button>
                     {/* @ts-ignore */}
-                    <button onClick={() => onLayout({ direction: 'RIGHT' })}>
-                        horizontal layout
+                    <button className='px-2' onClick={() => onLayout({ direction: 'RIGHT' })}>
+                        <span className='opacity-60 text-sm'>horizontal</span>
                     </button>
                 </div>
             </Panel>
             <Background />
-            <MiniMap />
-            <Controls />
+            <MiniMap maskColor='hsl(var(--primary-foreground, 0.19))' className='!bg-background' pannable zoomable position='bottom-right' nodeStrokeWidth={3} />
+            <Controls className='!bg-background' />
         </ReactFlow>
     );
 }
 
-export default (props: any) => (
+const RootFlow = (props: any) => (
     <ReactFlowProvider>
         <Flow {...props} />
     </ReactFlowProvider>
 );
+export default RootFlow
