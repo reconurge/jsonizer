@@ -10,7 +10,7 @@ export const flowlize = (raw_json: object): FlowSchema => {
     const nodes: any[] = [];
     const edges: any[] = [];
     raw_json = { root: raw_json }
-    const processObject = (obj: any, label: string, parentId: string | null = null, type = "object") => {
+    const processObject = (obj: any, label: string, parentId: string | null = null, type = "object", nodeType = "smoothstep") => {
         const currentId = (nodeId++).toString();
         const nodeData: any = { label, type, data: {} };
         const currentNode = {
@@ -25,7 +25,8 @@ export const flowlize = (raw_json: object): FlowSchema => {
                 id: `e${parentId}-${currentId}`,
                 source: parentId,
                 target: currentId,
-                type: 'smoothstep',
+                type: nodeType,
+                style: { strokeWidth: nodeType === "default" ? 2 : 6 },
             });
         }
         for (const [key, value] of Object.entries(obj)) {
@@ -41,7 +42,7 @@ export const flowlize = (raw_json: object): FlowSchema => {
                 nodeData["data"][key] = [`Array [${value.length} items]`];
                 type = "array"
                 for (const [index, item] of value.entries()) {
-                    processObject({ [index]: item }, `${key} [${index}]`, currentId, type);
+                    processObject({ [index]: item }, `${key} [${index}]`, currentId, type, nodeType = "default");
                 }
             } else if (typeof value === "object") {
                 nodeData["data"][key] = { value: `Object (${Object.keys(value).length} keys)` };

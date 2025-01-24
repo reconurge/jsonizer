@@ -10,7 +10,9 @@ interface DropzoneContextType {
   fileContents: FileContent[];
   setFileContents: any,
   isDragActive: boolean;
-  isLoading: boolean
+  isLoading: boolean,
+  isDragReject: boolean,
+  isDragAccept: boolean
 }
 
 const DropzoneContext = createContext<DropzoneContextType | undefined>(undefined);
@@ -40,14 +42,14 @@ export const DropzoneProvider: React.FC<DropzoneProviderProps> = ({ children }) 
     setIsLoading(false)
   };
 
-  const { getRootProps, isDragActive } = useDropzone({
+  const { getRootProps, isDragActive, isDragReject, isDragAccept } = useDropzone({
     accept: { "application/json": [".json"] },
     noClick: true,
     onDrop,
   });
 
   return (
-    <DropzoneContext.Provider value={{ fileContents, setFileContents, isDragActive, isLoading }}>
+    <DropzoneContext.Provider value={{ fileContents, setFileContents, isDragActive, isLoading, isDragReject, isDragAccept }}>
       <div {...getRootProps()} className={"z-[500]"}>
         {children}
         {isLoading && <div className="fixed z-[504] inset-0 bg-background/10"></div>}

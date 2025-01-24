@@ -124,7 +124,7 @@ function Flow({ nodes: initialNodes, edges: initialEdges }: { nodes: any, edges:
                 </div>
             </Panel>
             <Background />
-            <MiniMap maskColor='hsl(var(--primary-foreground, 0.19))' className='!bg-background' pannable zoomable position='bottom-right' nodeStrokeWidth={3} />
+            {/* <MiniMap maskColor='hsl(var(--primary-foreground, 0.19))' className='!bg-background' pannable zoomable position='bottom-right' nodeStrokeWidth={3} /> */}
             <Controls className='!bg-background' />
         </ReactFlow>
     );
