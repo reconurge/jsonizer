@@ -16,6 +16,7 @@ import {
 
 import '@xyflow/react/dist/style.css';
 import CustomNode from './custom-node';
+import { RotateCcwIcon } from 'lucide-react';
 
 const elk = new ELK();
 const elkOptions = {
@@ -114,12 +115,9 @@ function Flow({ nodes: initialNodes, edges: initialEdges }: { nodes: any, edges:
             <Panel className='bg-background shadow rounded-md border border-foreground/5' position="top-right">
                 <div className='flex items-center divide-x px-1 py-1'>
                     {/* @ts-ignore */}
-                    <button className='px-2' onClick={() => onLayout({ direction: 'DOWN' })}>
-                        <span className='opacity-60 text-sm'>vertical</span>
-                    </button>
-                    {/* @ts-ignore */}
-                    <button className='px-2' onClick={() => onLayout({ direction: 'RIGHT' })}>
-                        <span className='opacity-60 text-sm'>horizontal</span>
+                    <button className='px-2 flex items-center gap-2' onClick={() => onLayout({ direction: 'DOWN' })}>
+                        <RotateCcwIcon className='h-3 w-3 opacity-70'/>
+                        <span className='opacity-90 text-sm'>Reset</span>
                     </button>
                 </div>
             </Panel>

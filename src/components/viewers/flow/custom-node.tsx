@@ -1,3 +1,4 @@
+"use client"
 import React, { Dispatch, memo, SetStateAction, useState } from 'react';
 import { Handle, Position, useNodeId, useReactFlow } from '@xyflow/react';
 import { BracesIcon, BracketsIcon } from 'lucide-react';
@@ -11,7 +12,6 @@ import {
     DialogHeader,
     DialogTitle,
 } from "@/components/ui/dialog"
-import ReactJson from 'react-json-view';
 import {
     ContextMenu,
     ContextMenuContent,
@@ -19,6 +19,8 @@ import {
     ContextMenuTrigger,
 } from "@/components/ui/context-menu"
 import { useTheme } from 'next-themes';
+import dynamic from 'next/dynamic';
+const ReactJson = dynamic(() => import('react-json-view',), { ssr: false })
 
 export function NodeModal({ data, label, open, setOpen, theme }: { data: any, label: string, open: boolean, setOpen: Dispatch<SetStateAction<boolean>>, theme: string }) {
     return (
@@ -30,7 +32,7 @@ export function NodeModal({ data, label, open, setOpen, theme }: { data: any, la
                     </DialogDescription>
                 </DialogHeader>
                 <div className="grid gap-4 py-4">
-                    <ReactJson style={{ padding: 12 }} theme={theme === "dark" ? "brewer" : "rjv-default"} src={data} />
+                    {data && <ReactJson style={{ padding: 12 }} theme={theme === "dark" ? "brewer" : "rjv-default"} src={data} />}
                 </div>
                 <DialogFooter>
                     <DialogClose asChild>

@@ -1,7 +1,8 @@
 "use client"
 import { useTheme } from 'next-themes'
+import dynamic from 'next/dynamic'
 import React from 'react'
-import ReactJson from 'react-json-view'
+const ReactJson = dynamic(() => import('react-json-view',), { ssr: false })
 
 const ObjectViewer = ({ file }: { file: any }) => {
     const { theme } = useTheme()
