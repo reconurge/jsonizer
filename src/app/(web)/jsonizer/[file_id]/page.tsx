@@ -40,11 +40,11 @@ const Page = () => {
             </div>
             {isDragAccept &&
                 <div className={cn('absolute inset-0 flex items-center justify-center bg-primary/10 backdrop-blur-sm duration-300')}>
-                    <span className='text-xl font-semibold'>Let's extract it...</span>
+                    <span className='text-xl font-semibold'>Let&apos;s extract it...</span>
                 </div>}
             {isDragReject &&
                 <div className={cn('absolute inset-0 flex items-center justify-center bg-destructive/10 backdrop-blur-sm duration-300')}>
-                    <span className='text-xl font-semibold'>Woho. That's <span className='border border-destructive-80 bg-destructive/30 text-destructive rounded-full px-2 my-2'>NOT</span> a json file, is it ?</span>
+                    <span className='text-xl font-semibold'>Woho. That&apos;s <span className='border border-destructive-80 bg-destructive/30 text-destructive rounded-full px-2 my-2'>NOT</span> a json file, is it ?</span>
                 </div>}
         </div>
     </div>

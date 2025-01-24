@@ -16,7 +16,6 @@ import {
     ContextMenu,
     ContextMenuContent,
     ContextMenuItem,
-    ContextMenuShortcut,
     ContextMenuTrigger,
 } from "@/components/ui/context-menu"
 import { useTheme } from 'next-themes';

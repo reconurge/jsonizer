@@ -10,7 +10,7 @@ import {
     useNodesState,
     useEdgesState,
     useReactFlow,
-    MiniMap,
+    // MiniMap,
     Controls,
 } from '@xyflow/react';
 
