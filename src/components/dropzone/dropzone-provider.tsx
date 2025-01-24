@@ -3,7 +3,7 @@ import useLocalStorage from "@/lib/use-local-storage";
 import { useRouter } from "next/navigation";
 import React, { createContext, useContext, ReactNode, useState } from "react";
 import { useDropzone } from "react-dropzone";
-
+import example from './example.json'
 type FileContent = { name: string; content: any, id: string };
 
 interface DropzoneContextType {
@@ -20,7 +20,7 @@ interface DropzoneProviderProps {
 }
 
 export const DropzoneProvider: React.FC<DropzoneProviderProps> = ({ children }) => {
-  const [fileContents, setFileContents] = useLocalStorage<FileContent[]>('files', []);
+  const [fileContents, setFileContents] = useLocalStorage<FileContent[]>('files', [{ name: "exemple.json", id: "example", content: example }]);
   const [isLoading, setIsLoading] = useState<boolean>(false)
   const router = useRouter()
   const onDrop = async (acceptedFiles: File[]) => {

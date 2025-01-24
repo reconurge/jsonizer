@@ -1,0 +1,45 @@
+{
+    "id": 1,
+    "name": "John Doe",
+    "age": 30,
+    "email": "johndoe@example.com",
+    "address": {
+      "street": "123 Main St",
+      "city": "Anytown",
+      "state": "CA",
+      "zipCode": "90210"
+    },
+    "phoneNumbers": [
+      {
+        "type": "home",
+        "number": "555-1234"
+      },
+      {
+        "type": "work",
+        "number": "555-5678"
+      }
+    ],
+    "skills": ["JavaScript", "Python", "SQL"],
+    "employment": {
+      "current": {
+        "company": "TechCorp",
+        "position": "Software Engineer",
+        "years": 5
+      },
+      "previous": [
+        {
+          "company": "WebDev Inc.",
+          "position": "Frontend Developer",
+          "years": 2
+        },
+        {
+          "company": "CodeMasters",
+          "position": "Intern",
+          "years": 1
+        }
+      ]
+    },
+    "isActive": true,
+    "joinedDate": "2018-05-10"
+  }
+  

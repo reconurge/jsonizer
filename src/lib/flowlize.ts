@@ -41,7 +41,7 @@ export const flowlize = (raw_json: object): FlowSchema => {
                 nodeData["data"][key] = [`Array [${value.length} items]`];
                 type = "array"
                 for (const [index, item] of value.entries()) {
-                    processObject({ [index]: item }, nodeData["data"][key], currentId, type);
+                    processObject({ [index]: item }, `${key} [${index}]`, currentId, type);
                 }
             } else if (typeof value === "object") {
                 nodeData["data"][key] = { value: `Object (${Object.keys(value).length} keys)` };

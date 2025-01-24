@@ -23,6 +23,8 @@ const elkOptions = {
     "elk.layered.spacing.nodeNodeBetweenLayers": "200",
     "elk.spacing.nodeNode": "150",
     "elk.edgeRouting": "SPLINES",
+    "elk.eclipse.elk.nodeSize.options": "MINIMUM_SIZE_ACCOUNTS_FOR_PADDING",
+    "elk.direction": "DOWN"
 };
 const nodeTypes = {
     custom: CustomNode,

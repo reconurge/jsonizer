@@ -61,7 +61,7 @@ const Page = () => {
                     <Button className='h-6' variant={view === "code" ? "ghost" : "default"} onClick={() => setView("flow")}>Flow view</Button>
                 </div>
             </header> {view === "flow" ?
-                <Flow file={file} nodes={schema.nodes} edges={schema.edges} /> :
+                <Flow nodes={schema.nodes} edges={schema.edges} /> :
                 <ObjectViewer file={file} />
             }
         </>
