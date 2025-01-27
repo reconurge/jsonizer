@@ -5,7 +5,7 @@ const nextConfig: NextConfig = {
     return [
       {
         source: '/',
-        destination: '/jsonizer',
+        destination: '/editor',
         permanent: true,
       },
     ]

@@ -77,6 +77,7 @@ function Tree({ data }: { data: any }) {
   const handleDeleteItem = () => {
     if (!item) return
     setFileContents((prev: any[]) => prev.filter((a) => a.id !== item))
+    setSure(false)
   }
 
   return (
@@ -102,7 +103,7 @@ function Tree({ data }: { data: any }) {
                     className="data-[active=true]:bg-transparent"
                   >
                     <File />
-                    <Link href={`/jsonizer/${subItem?.id}`} className="">{subItem?.name}</Link>
+                    <Link href={`/jsonizer/${subItem?.id}`} className="truncate text-ellipsis">{subItem?.name}</Link>
                   </SidebarMenuButton>
                   <Button onClick={() => handleOpenModal(subItem?.id)} size={"icon"} variant={"ghost"}><TrashIcon className="h-2 w-2" /></Button>
                 </div>
@@ -121,7 +122,7 @@ function Tree({ data }: { data: any }) {
             </AlertDialogDescription>
           </AlertDialogHeader>
           <AlertDialogFooter>
-            <AlertDialogCancel>Cancel</AlertDialogCancel>
+            <AlertDialogCancel onClick={()=> setSure(false)}>Cancel</AlertDialogCancel>
             <AlertDialogAction onClick={handleDeleteItem}>Continue</AlertDialogAction>
           </AlertDialogFooter>
         </AlertDialogContent>

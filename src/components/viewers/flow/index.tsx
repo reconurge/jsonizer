@@ -17,6 +17,10 @@ import {
 import '@xyflow/react/dist/style.css';
 import CustomNode from './custom-node';
 import { RotateCcwIcon } from 'lucide-react';
+import { ModeToggle } from '@/components/mode-toggle';
+import { Button } from '@/components/ui/button';
+import { useDropzoneContext } from '@/components/dropzone/dropzone-provider';
+// import { useCommandContext } from '@/components/command-provider';
 
 const elk = new ELK();
 const elkOptions = {
@@ -70,6 +74,7 @@ function Flow({ nodes: initialNodes, edges: initialEdges }: { nodes: any, edges:
     const [nodes, setNodes, onNodesChange] = useNodesState(initialNodes);
     const [edges, setEdges, onEdgesChange] = useEdgesState(initialEdges);
     const { fitView } = useReactFlow();
+    const { setOpenCommand } = useDropzoneContext()
 
     const onConnect = useCallback(
         (params: any) => setEdges((eds) => addEdge(params, eds)),
@@ -87,13 +92,12 @@ function Flow({ nodes: initialNodes, edges: initialEdges }: { nodes: any, edges:
                 ({ nodes: layoutedNodes, edges: layoutedEdges }) => {
                     setNodes(layoutedNodes);
                     setEdges(layoutedEdges);
-
-                    window.requestAnimationFrame(() => fitView());
+                    fitView();
                 },
             );
         },
         // @ts-ignore
-        [],
+        [initialNodes, initialEdges],
     );
 
     useLayoutEffect(() => {
@@ -113,12 +117,18 @@ function Flow({ nodes: initialNodes, edges: initialEdges }: { nodes: any, edges:
             nodeTypes={nodeTypes}
         >
             <Panel className='bg-background shadow rounded-md border border-foreground/5' position="top-right">
-                <div className='flex items-center divide-x px-1 py-1'>
+                <div className='flex items-center gap-1 px-1'>
+                    <Button onClick={() => setOpenCommand(true)} variant="outline" className="text-sm text-muted-foreground">
+                        Command{" "}
+                        <kbd className="pointer-events-none inline-flex h-5 select-none items-center gap-1 rounded border bg-muted px-1.5 font-mono text-[10px] font-medium text-muted-foreground opacity-100">
+                            <span className="text-xs">⌘</span>J
+                        </kbd>
+                    </Button>
                     {/* @ts-ignore */}
-                    <button className='px-2 flex items-center gap-2' onClick={() => onLayout({ direction: 'DOWN' })}>
-                        <RotateCcwIcon className='h-3 w-3 opacity-70'/>
-                        <span className='opacity-90 text-sm'>Reset</span>
-                    </button>
+                    <Button variant="outline" size="icon" className='px-2 flex items-center gap-2' onClick={() => onLayout({ direction: 'DOWN' })}>
+                        <RotateCcwIcon className='h-3 w-3' />
+                    </Button>
+                    <ModeToggle />
                 </div>
             </Panel>
             <Background />
