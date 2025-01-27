@@ -10,7 +10,7 @@ import {
     useNodesState,
     useEdgesState,
     useReactFlow,
-    // MiniMap,
+    MiniMap,
     Controls,
 } from '@xyflow/react';
 
@@ -74,7 +74,7 @@ function Flow({ nodes: initialNodes, edges: initialEdges }: { nodes: any, edges:
     const [nodes, setNodes, onNodesChange] = useNodesState(initialNodes);
     const [edges, setEdges, onEdgesChange] = useEdgesState(initialEdges);
     const { fitView } = useReactFlow();
-    const { setOpenCommand } = useDropzoneContext()
+    const { setOpenCommand, setShowEditor, showEditor } = useDropzoneContext()
 
     const onConnect = useCallback(
         (params: any) => setEdges((eds) => addEdge(params, eds)),
@@ -116,8 +116,18 @@ function Flow({ nodes: initialNodes, edges: initialEdges }: { nodes: any, edges:
             proOptions={{ hideAttribution: true }}
             nodeTypes={nodeTypes}
         >
-            <Panel className='bg-background shadow rounded-md border border-foreground/5' position="top-right">
-                <div className='flex items-center gap-1 px-1'>
+            <Panel className='bg-transparent' position="top-left">
+                <div className='flex items-center gap-1'>
+                    <Button onClick={() => setShowEditor(!showEditor)} variant="outline" className="text-sm text-muted-foreground">
+                        {showEditor ? "Hide editor " : "Show editor "}
+                        <kbd className="pointer-events-none inline-flex h-5 select-none items-center gap-1 rounded border bg-muted px-1.5 font-mono text-[10px] font-medium text-muted-foreground opacity-100">
+                            <span className="text-xs">⌘</span>k
+                        </kbd>
+                    </Button>
+                </div>
+            </Panel>
+            <Panel className='bg-transparent' position="top-right">
+                <div className='flex items-center gap-1'>
                     <Button onClick={() => setOpenCommand(true)} variant="outline" className="text-sm text-muted-foreground">
                         Command{" "}
                         <kbd className="pointer-events-none inline-flex h-5 select-none items-center gap-1 rounded border bg-muted px-1.5 font-mono text-[10px] font-medium text-muted-foreground opacity-100">
@@ -132,7 +142,7 @@ function Flow({ nodes: initialNodes, edges: initialEdges }: { nodes: any, edges:
                 </div>
             </Panel>
             <Background />
-            {/* <MiniMap maskColor='hsl(var(--primary-foreground, 0.19))' className='!bg-background' pannable zoomable position='bottom-right' nodeStrokeWidth={3} /> */}
+            <MiniMap maskColor='hsl(var(--background))' className='!bg-background shadow rounded-md border border-foreground/5' pannable zoomable position='bottom-right' nodeStrokeWidth={3} />
             <Controls className='!bg-background' />
         </ReactFlow>
     );

@@ -1,45 +1,745 @@
 {
-    "id": 1,
-    "name": "John Doe",
-    "age": 30,
-    "email": "johndoe@example.com",
-    "address": {
-      "street": "123 Main St",
-      "city": "Anytown",
-      "state": "CA",
-      "zipCode": "90210"
+    "status": 1,
+    "api_query": "reverse_whois",
+    "search_identifier": {
+        "email": "denn@ukoloff.com"
     },
-    "phoneNumbers": [
-      {
-        "type": "home",
-        "number": "555-1234"
-      },
-      {
-        "type": "work",
-        "number": "555-5678"
-      }
-    ],
-    "skills": ["JavaScript", "Python", "SQL"],
-    "employment": {
-      "current": {
-        "company": "TechCorp",
-        "position": "Software Engineer",
-        "years": 5
-      },
-      "previous": [
+    "total_results": "34",
+    "total_pages": 1,
+    "current_page": 1,
+    "search_result": [
         {
-          "company": "WebDev Inc.",
-          "position": "Frontend Developer",
-          "years": 2
+            "num": 1,
+            "domain_name": "openweathermap.org",
+            "query_time": "2012-11-19 08:00:00",
+            "create_date": "2012-04-20",
+            "update_date": "2012-06-20",
+            "expiry_date": "2013-04-20",
+            "registrant_contact": {
+                "full_name": "Ukolov Denis",
+                "company_name": "Ukolov Denis",
+                "mailing_address": "Dzhalilya 28\\1-117",
+                "city_name": "Moscow",
+                "zip_code": "115573",
+                "country_name": "Russian Federation",
+                "country_code": "RU",
+                "email_address": "denn@ukoloff.com",
+                "phone_number": "79032166172"
+            },
+            "administrative_contact": {
+                "full_name": "Ukolov Denis",
+                "company_name": "Ukolov Denis",
+                "mailing_address": "Dzhalilya 28\\1-117",
+                "city_name": "Moscow",
+                "zip_code": "115573",
+                "country_name": "Russian Federation",
+                "country_code": "RU",
+                "email_address": "denn@ukoloff.com",
+                "phone_number": "79032166172"
+            },
+            "technical_contact": {
+                "full_name": "Ukolov Denis",
+                "company_name": "Ukolov Denis",
+                "mailing_address": "Dzhalilya 28\\1-117",
+                "city_name": "Moscow",
+                "zip_code": "115573",
+                "country_name": "Russian Federation",
+                "country_code": "RU",
+                "email_address": "denn@ukoloff.com",
+                "phone_number": "79032166172"
+            },
+            "name_servers": [
+                "ns3.fastvps.ru",
+                "ns4.fastvps.ru"
+            ],
+            "domain_status": [
+                "CLIENT TRANSFER PROHIBITED"
+            ]
         },
         {
-          "company": "CodeMasters",
-          "position": "Intern",
-          "years": 1
+            "num": 2,
+            "domain_name": "openagrimap.com",
+            "query_time": "2021-11-16 15:58:03",
+            "create_date": "2021-11-13",
+            "expiry_date": "2022-11-13",
+            "domain_registrar": {
+                "iana_id": 1068,
+                "registrar_name": "NameCheap, Inc.",
+                "whois_server": "whois.namecheap.com",
+                "website_url": "http://www.namecheap.com",
+                "registrar_status": "Accredited"
+            },
+            "registrant_contact": {
+                "full_name": "Denis Ukolov",
+                "company_name": "Openweather Ltd.",
+                "mailing_address": "1 Ropemaker Street",
+                "city_name": "London",
+                "state_name": "London",
+                "zip_code": "EC2Y 9ST",
+                "country_name": "United Kingdom",
+                "country_code": "GB",
+                "email_address": "denn@ukoloff.com",
+                "phone_number": "+44.0000000"
+            },
+            "administrative_contact": {
+                "full_name": "Denis Ukolov",
+                "company_name": "Openweather Ltd.",
+                "mailing_address": "1 Ropemaker Street",
+                "city_name": "London",
+                "state_name": "London",
+                "zip_code": "EC2Y 9ST",
+                "country_name": "United Kingdom",
+                "country_code": "GB",
+                "email_address": "denn@ukoloff.com",
+                "phone_number": "+44.0000000"
+            },
+            "technical_contact": {
+                "full_name": "Denis Ukolov",
+                "company_name": "Openweather Ltd.",
+                "mailing_address": "1 Ropemaker Street",
+                "city_name": "London",
+                "state_name": "London",
+                "zip_code": "EC2Y 9ST",
+                "country_name": "United Kingdom",
+                "country_code": "GB",
+                "email_address": "denn@ukoloff.com",
+                "phone_number": "+44.0000000"
+            },
+            "name_servers": [
+                "ns-1301.awsdns-34.org",
+                "ns-1842.awsdns-38.co.uk",
+                "ns-459.awsdns-57.com",
+                "ns-635.awsdns-15.net"
+            ],
+            "domain_status": [
+                "clientTransferProhibited"
+            ]
+        },
+        {
+            "num": 3,
+            "domain_name": "globalagrimap.com",
+            "query_time": "2021-11-16 16:15:05",
+            "create_date": "2021-11-13",
+            "expiry_date": "2022-11-13",
+            "domain_registrar": {
+                "iana_id": 1068,
+                "registrar_name": "NameCheap, Inc.",
+                "whois_server": "whois.namecheap.com",
+                "website_url": "http://www.namecheap.com",
+                "registrar_status": "Accredited"
+            },
+            "registrant_contact": {
+                "full_name": "Denis Ukolov",
+                "mailing_address": "1 Ropemaker Street",
+                "city_name": "London",
+                "state_name": "London",
+                "zip_code": "EC2Y 9ST",
+                "country_name": "United Kingdom",
+                "country_code": "GB",
+                "email_address": "denn@ukoloff.com",
+                "phone_number": "+44.0000000"
+            },
+            "administrative_contact": {
+                "full_name": "Denis Ukolov",
+                "mailing_address": "1 Ropemaker Street",
+                "city_name": "London",
+                "state_name": "London",
+                "zip_code": "EC2Y 9ST",
+                "country_name": "United Kingdom",
+                "country_code": "GB",
+                "email_address": "denn@ukoloff.com",
+                "phone_number": "+44.0000000"
+            },
+            "technical_contact": {
+                "full_name": "Denis Ukolov",
+                "mailing_address": "1 Ropemaker Street",
+                "city_name": "London",
+                "state_name": "London",
+                "zip_code": "EC2Y 9ST",
+                "country_name": "United Kingdom",
+                "country_code": "GB",
+                "email_address": "denn@ukoloff.com",
+                "phone_number": "+44.0000000"
+            },
+            "name_servers": [
+                "dns1.registrar-servers.com",
+                "dns2.registrar-servers.com"
+            ],
+            "domain_status": [
+                "addPeriod",
+                "clientTransferProhibited"
+            ]
+        },
+        {
+            "num": 4,
+            "domain_name": "openagrimap.com",
+            "query_time": "2022-11-21 18:05:00",
+            "create_date": "2021-11-13",
+            "update_date": "2022-10-14",
+            "expiry_date": "2023-11-13",
+            "domain_registrar": {
+                "iana_id": 1068,
+                "registrar_name": "NameCheap, Inc.",
+                "whois_server": "whois.namecheap.com",
+                "website_url": "http://www.namecheap.com",
+                "registrar_status": "Accredited"
+            },
+            "registrant_contact": {
+                "full_name": "Denis Ukolov",
+                "company_name": "Openweather Ltd.",
+                "mailing_address": "1 Ropemaker Street",
+                "city_name": "London",
+                "state_name": "London",
+                "zip_code": "EC2Y 9ST",
+                "country_name": "United Kingdom",
+                "country_code": "GB",
+                "email_address": "denn@ukoloff.com",
+                "phone_number": "+44.0000000"
+            },
+            "administrative_contact": {
+                "full_name": "Denis Ukolov",
+                "company_name": "Openweather Ltd.",
+                "mailing_address": "1 Ropemaker Street",
+                "city_name": "London",
+                "state_name": "London",
+                "zip_code": "EC2Y 9ST",
+                "country_name": "United Kingdom",
+                "country_code": "GB",
+                "email_address": "denn@ukoloff.com",
+                "phone_number": "+44.0000000"
+            },
+            "technical_contact": {
+                "full_name": "Denis Ukolov",
+                "company_name": "Openweather Ltd.",
+                "mailing_address": "1 Ropemaker Street",
+                "city_name": "London",
+                "state_name": "London",
+                "zip_code": "EC2Y 9ST",
+                "country_name": "United Kingdom",
+                "country_code": "GB",
+                "email_address": "denn@ukoloff.com",
+                "phone_number": "+44.0000000"
+            },
+            "name_servers": [
+                "ns-1301.awsdns-34.org",
+                "ns-1842.awsdns-38.co.uk",
+                "ns-459.awsdns-57.com",
+                "ns-635.awsdns-15.net"
+            ],
+            "domain_status": [
+                "clientTransferProhibited"
+            ]
+        },
+        {
+            "num": 5,
+            "domain_name": "globalagriculturemap.com",
+            "query_time": "2023-08-27 04:57:11",
+            "create_date": "2021-11-13",
+            "update_date": "2022-10-14",
+            "expiry_date": "2023-11-13",
+            "domain_registrar": {
+                "iana_id": 1068,
+                "registrar_name": "NameCheap, Inc.",
+                "whois_server": "whois.namecheap.com",
+                "website_url": "http://www.namecheap.com",
+                "registrar_status": "Accredited"
+            },
+            "registrant_contact": {
+                "full_name": "Denis Ukolov",
+                "mailing_address": "1 Ropemaker Street",
+                "city_name": "London",
+                "state_name": "London",
+                "zip_code": "EC2Y 9ST",
+                "country_name": "United Kingdom",
+                "country_code": "GB",
+                "email_address": "denn@ukoloff.com",
+                "phone_number": "REDACTED FOR PRIVACY"
+            },
+            "administrative_contact": {
+                "full_name": "Denis Ukolov",
+                "mailing_address": "1 Ropemaker Street",
+                "city_name": "London",
+                "state_name": "London",
+                "zip_code": "EC2Y 9ST",
+                "country_name": "United Kingdom",
+                "country_code": "GB",
+                "email_address": "denn@ukoloff.com",
+                "phone_number": "REDACTED FOR PRIVACY"
+            },
+            "technical_contact": {
+                "full_name": "Denis Ukolov",
+                "mailing_address": "1 Ropemaker Street",
+                "city_name": "London",
+                "state_name": "London",
+                "zip_code": "EC2Y 9ST",
+                "country_name": "United Kingdom",
+                "country_code": "GB",
+                "email_address": "denn@ukoloff.com",
+                "phone_number": "REDACTED FOR PRIVACY"
+            },
+            "name_servers": [
+                "dns1.registrar-servers.com",
+                "dns2.registrar-servers.com"
+            ],
+            "domain_status": [
+                "clientTransferProhibited"
+            ]
+        },
+        {
+            "num": 6,
+            "domain_name": "globalagrimap.com",
+            "query_time": "2023-09-07 16:29:12",
+            "create_date": "2021-11-13",
+            "update_date": "2022-10-14",
+            "expiry_date": "2023-11-13",
+            "domain_registrar": {
+                "iana_id": 1068,
+                "registrar_name": "NameCheap, Inc.",
+                "whois_server": "whois.namecheap.com",
+                "website_url": "http://www.namecheap.com",
+                "registrar_status": "Accredited"
+            },
+            "registrant_contact": {
+                "full_name": "Denis Ukolov",
+                "mailing_address": "1 Ropemaker Street",
+                "city_name": "London",
+                "state_name": "London",
+                "zip_code": "EC2Y 9ST",
+                "country_name": "United Kingdom",
+                "country_code": "GB",
+                "email_address": "denn@ukoloff.com",
+                "phone_number": "REDACTED FOR PRIVACY"
+            },
+            "administrative_contact": {
+                "full_name": "Denis Ukolov",
+                "mailing_address": "1 Ropemaker Street",
+                "city_name": "London",
+                "state_name": "London",
+                "zip_code": "EC2Y 9ST",
+                "country_name": "United Kingdom",
+                "country_code": "GB",
+                "email_address": "denn@ukoloff.com",
+                "phone_number": "REDACTED FOR PRIVACY"
+            },
+            "technical_contact": {
+                "full_name": "Denis Ukolov",
+                "mailing_address": "1 Ropemaker Street",
+                "city_name": "London",
+                "state_name": "London",
+                "zip_code": "EC2Y 9ST",
+                "country_name": "United Kingdom",
+                "country_code": "GB",
+                "email_address": "denn@ukoloff.com",
+                "phone_number": "REDACTED FOR PRIVACY"
+            },
+            "name_servers": [
+                "dns1.registrar-servers.com",
+                "dns2.registrar-servers.com"
+            ],
+            "domain_status": [
+                "clientTransferProhibited"
+            ]
+        },
+        {
+            "num": 7,
+            "domain_name": "openagrimap.com",
+            "query_time": "2023-08-19 11:39:04",
+            "create_date": "2021-11-13",
+            "update_date": "2022-10-14",
+            "expiry_date": "2023-11-13",
+            "domain_registrar": {
+                "iana_id": 1068,
+                "registrar_name": "NameCheap, Inc.",
+                "whois_server": "whois.namecheap.com",
+                "website_url": "http://www.namecheap.com",
+                "registrar_status": "Accredited"
+            },
+            "registrant_contact": {
+                "full_name": "Denis Ukolov",
+                "company_name": "Openweather Ltd.",
+                "mailing_address": "1 Ropemaker Street",
+                "city_name": "London",
+                "state_name": "London",
+                "zip_code": "EC2Y 9ST",
+                "country_name": "United Kingdom",
+                "country_code": "GB",
+                "email_address": "denn@ukoloff.com",
+                "phone_number": "REDACTED FOR PRIVACY"
+            },
+            "administrative_contact": {
+                "full_name": "Denis Ukolov",
+                "company_name": "Openweather Ltd.",
+                "mailing_address": "1 Ropemaker Street",
+                "city_name": "London",
+                "state_name": "London",
+                "zip_code": "EC2Y 9ST",
+                "country_name": "United Kingdom",
+                "country_code": "GB",
+                "email_address": "denn@ukoloff.com",
+                "phone_number": "REDACTED FOR PRIVACY"
+            },
+            "technical_contact": {
+                "full_name": "Denis Ukolov",
+                "company_name": "Openweather Ltd.",
+                "mailing_address": "1 Ropemaker Street",
+                "city_name": "London",
+                "state_name": "London",
+                "zip_code": "EC2Y 9ST",
+                "country_name": "United Kingdom",
+                "country_code": "GB",
+                "email_address": "denn@ukoloff.com",
+                "phone_number": "REDACTED FOR PRIVACY"
+            },
+            "name_servers": [
+                "ns-1301.awsdns-34.org",
+                "ns-1842.awsdns-38.co.uk",
+                "ns-459.awsdns-57.com",
+                "ns-635.awsdns-15.net"
+            ],
+            "domain_status": [
+                "clientTransferProhibited"
+            ]
+        },
+        {
+            "num": 8,
+            "domain_name": "openagrimap.com",
+            "query_time": "2024-09-05 12:36:51",
+            "create_date": "2021-11-13",
+            "update_date": "2023-10-14",
+            "expiry_date": "2024-11-13",
+            "domain_registrar": {
+                "iana_id": 1068,
+                "registrar_name": "NameCheap, Inc.",
+                "whois_server": "whois.namecheap.com",
+                "website_url": "http://www.namecheap.com",
+                "registrar_status": "Accredited"
+            },
+            "registrant_contact": {
+                "full_name": "Denis Ukolov",
+                "company_name": "Openweather Ltd.",
+                "mailing_address": "1 Ropemaker Street",
+                "city_name": "London",
+                "state_name": "London",
+                "zip_code": "EC2Y 9ST",
+                "country_name": "United Kingdom",
+                "country_code": "GB",
+                "email_address": "denn@ukoloff.com",
+                "phone_number": "REDACTED FOR PRIVACY"
+            },
+            "administrative_contact": {
+                "full_name": "Denis Ukolov",
+                "company_name": "Openweather Ltd.",
+                "mailing_address": "1 Ropemaker Street",
+                "city_name": "London",
+                "state_name": "London",
+                "zip_code": "EC2Y 9ST",
+                "country_name": "United Kingdom",
+                "country_code": "GB",
+                "email_address": "denn@ukoloff.com",
+                "phone_number": "REDACTED FOR PRIVACY"
+            },
+            "technical_contact": {
+                "full_name": "Denis Ukolov",
+                "company_name": "Openweather Ltd.",
+                "mailing_address": "1 Ropemaker Street",
+                "city_name": "London",
+                "state_name": "London",
+                "zip_code": "EC2Y 9ST",
+                "country_name": "United Kingdom",
+                "country_code": "GB",
+                "email_address": "denn@ukoloff.com",
+                "phone_number": "REDACTED FOR PRIVACY"
+            },
+            "name_servers": [
+                "ns-1301.awsdns-34.org",
+                "ns-1842.awsdns-38.co.uk",
+                "ns-459.awsdns-57.com",
+                "ns-635.awsdns-15.net"
+            ],
+            "domain_status": [
+                "clientTransferProhibited"
+            ]
+        },
+        {
+            "num": 9,
+            "domain_name": "globalagriculturemap.com",
+            "query_time": "2024-11-04 03:33:17",
+            "create_date": "2021-11-13",
+            "update_date": "2023-10-14",
+            "expiry_date": "2024-11-13",
+            "domain_registrar": {
+                "iana_id": 1068,
+                "registrar_name": "NameCheap, Inc.",
+                "whois_server": "whois.namecheap.com",
+                "website_url": "http://www.namecheap.com",
+                "registrar_status": "Accredited"
+            },
+            "registrant_contact": {
+                "full_name": "Denis Ukolov",
+                "mailing_address": "1 Ropemaker Street",
+                "city_name": "London",
+                "state_name": "London",
+                "zip_code": "EC2Y 9ST",
+                "country_name": "United Kingdom",
+                "country_code": "GB",
+                "email_address": "denn@ukoloff.com",
+                "phone_number": "REDACTED FOR PRIVACY"
+            },
+            "administrative_contact": {
+                "full_name": "Denis Ukolov",
+                "mailing_address": "1 Ropemaker Street",
+                "city_name": "London",
+                "state_name": "London",
+                "zip_code": "EC2Y 9ST",
+                "country_name": "United Kingdom",
+                "country_code": "GB",
+                "email_address": "denn@ukoloff.com",
+                "phone_number": "REDACTED FOR PRIVACY"
+            },
+            "technical_contact": {
+                "full_name": "Denis Ukolov",
+                "mailing_address": "1 Ropemaker Street",
+                "city_name": "London",
+                "state_name": "London",
+                "zip_code": "EC2Y 9ST",
+                "country_name": "United Kingdom",
+                "country_code": "GB",
+                "email_address": "denn@ukoloff.com",
+                "phone_number": "REDACTED FOR PRIVACY"
+            },
+            "name_servers": [
+                "dns1.registrar-servers.com",
+                "dns2.registrar-servers.com"
+            ],
+            "domain_status": [
+                "clientTransferProhibited"
+            ]
+        },
+        {
+            "num": 10,
+            "domain_name": "globalagrimap.com",
+            "query_time": "2024-11-07 09:54:22",
+            "create_date": "2021-11-13",
+            "update_date": "2023-10-14",
+            "expiry_date": "2024-11-13",
+            "domain_registrar": {
+                "iana_id": 1068,
+                "registrar_name": "NameCheap, Inc.",
+                "whois_server": "whois.namecheap.com",
+                "website_url": "http://www.namecheap.com",
+                "registrar_status": "Accredited"
+            },
+            "registrant_contact": {
+                "full_name": "Denis Ukolov",
+                "mailing_address": "1 Ropemaker Street",
+                "city_name": "London",
+                "state_name": "London",
+                "zip_code": "EC2Y 9ST",
+                "country_name": "United Kingdom",
+                "country_code": "GB",
+                "email_address": "denn@ukoloff.com",
+                "phone_number": "REDACTED FOR PRIVACY"
+            },
+            "administrative_contact": {
+                "full_name": "Denis Ukolov",
+                "mailing_address": "1 Ropemaker Street",
+                "city_name": "London",
+                "state_name": "London",
+                "zip_code": "EC2Y 9ST",
+                "country_name": "United Kingdom",
+                "country_code": "GB",
+                "email_address": "denn@ukoloff.com",
+                "phone_number": "REDACTED FOR PRIVACY"
+            },
+            "technical_contact": {
+                "full_name": "Denis Ukolov",
+                "mailing_address": "1 Ropemaker Street",
+                "city_name": "London",
+                "state_name": "London",
+                "zip_code": "EC2Y 9ST",
+                "country_name": "United Kingdom",
+                "country_code": "GB",
+                "email_address": "denn@ukoloff.com",
+                "phone_number": "REDACTED FOR PRIVACY"
+            },
+            "name_servers": [
+                "dns1.registrar-servers.com",
+                "dns2.registrar-servers.com"
+            ],
+            "domain_status": [
+                "clientTransferProhibited"
+            ]
+        },
+        {
+            "num": 11,
+            "domain_name": "globalagriculturemap.com",
+            "query_time": "2024-11-27 04:53:49",
+            "create_date": "2021-11-13",
+            "update_date": "2023-10-14",
+            "expiry_date": "2024-11-13",
+            "domain_registrar": {
+                "iana_id": 1068,
+                "registrar_name": "NameCheap, Inc.",
+                "whois_server": "whois.namecheap.com",
+                "website_url": "http://www.namecheap.com",
+                "registrar_status": "Accredited"
+            },
+            "registrant_contact": {
+                "full_name": "Denis Ukolov",
+                "mailing_address": "1 Ropemaker Street",
+                "city_name": "London",
+                "state_name": "London",
+                "zip_code": "EC2Y 9ST",
+                "country_name": "United Kingdom",
+                "country_code": "GB",
+                "email_address": "denn@ukoloff.com",
+                "phone_number": "REDACTED FOR PRIVACY"
+            },
+            "administrative_contact": {
+                "full_name": "Denis Ukolov",
+                "mailing_address": "1 Ropemaker Street",
+                "city_name": "London",
+                "state_name": "London",
+                "zip_code": "EC2Y 9ST",
+                "country_name": "United Kingdom",
+                "country_code": "GB",
+                "email_address": "denn@ukoloff.com",
+                "phone_number": "REDACTED FOR PRIVACY"
+            },
+            "technical_contact": {
+                "full_name": "Denis Ukolov",
+                "mailing_address": "1 Ropemaker Street",
+                "city_name": "London",
+                "state_name": "London",
+                "zip_code": "EC2Y 9ST",
+                "country_name": "United Kingdom",
+                "country_code": "GB",
+                "email_address": "denn@ukoloff.com",
+                "phone_number": "REDACTED FOR PRIVACY"
+            },
+            "name_servers": [
+                "dns101.registrar-servers.com",
+                "dns102.registrar-servers.com"
+            ],
+            "domain_status": [
+                "clientTransferProhibited"
+            ]
+        },
+        {
+            "num": 12,
+            "domain_name": "globalagrimap.com",
+            "query_time": "2024-11-16 11:08:19",
+            "create_date": "2021-11-13",
+            "update_date": "2023-10-14",
+            "expiry_date": "2024-11-13",
+            "domain_registrar": {
+                "iana_id": 1068,
+                "registrar_name": "NameCheap, Inc.",
+                "whois_server": "whois.namecheap.com",
+                "website_url": "http://www.namecheap.com",
+                "registrar_status": "Accredited"
+            },
+            "registrant_contact": {
+                "full_name": "Denis Ukolov",
+                "mailing_address": "1 Ropemaker Street",
+                "city_name": "London",
+                "state_name": "London",
+                "zip_code": "EC2Y 9ST",
+                "country_name": "United Kingdom",
+                "country_code": "GB",
+                "email_address": "denn@ukoloff.com",
+                "phone_number": "REDACTED FOR PRIVACY"
+            },
+            "administrative_contact": {
+                "full_name": "Denis Ukolov",
+                "mailing_address": "1 Ropemaker Street",
+                "city_name": "London",
+                "state_name": "London",
+                "zip_code": "EC2Y 9ST",
+                "country_name": "United Kingdom",
+                "country_code": "GB",
+                "email_address": "denn@ukoloff.com",
+                "phone_number": "REDACTED FOR PRIVACY"
+            },
+            "technical_contact": {
+                "full_name": "Denis Ukolov",
+                "mailing_address": "1 Ropemaker Street",
+                "city_name": "London",
+                "state_name": "London",
+                "zip_code": "EC2Y 9ST",
+                "country_name": "United Kingdom",
+                "country_code": "GB",
+                "email_address": "denn@ukoloff.com",
+                "phone_number": "REDACTED FOR PRIVACY"
+            },
+            "name_servers": [
+                "dns101.registrar-servers.com",
+                "dns102.registrar-servers.com"
+            ],
+            "domain_status": [
+                "clientTransferProhibited"
+            ]
+        },
+        {
+            "num": 13,
+            "domain_name": "openagrimap.com",
+            "query_time": "2024-12-29 08:10:40",
+            "create_date": "2021-11-13",
+            "update_date": "2024-10-14",
+            "expiry_date": "2025-11-13",
+            "domain_registrar": {
+                "iana_id": 1068,
+                "registrar_name": "NameCheap, Inc.",
+                "whois_server": "whois.namecheap.com",
+                "website_url": "http://www.namecheap.com",
+                "registrar_status": "Accredited"
+            },
+            "registrant_contact": {
+                "full_name": "Denis Ukolov",
+                "company_name": "Openweather Ltd.",
+                "mailing_address": "1 Ropemaker Street",
+                "city_name": "London",
+                "state_name": "London",
+                "zip_code": "EC2Y 9ST",
+                "country_name": "United Kingdom",
+                "country_code": "GB",
+                "email_address": "denn@ukoloff.com",
+                "phone_number": "REDACTED FOR PRIVACY"
+            },
+            "administrative_contact": {
+                "full_name": "Denis Ukolov",
+                "company_name": "Openweather Ltd.",
+                "mailing_address": "1 Ropemaker Street",
+                "city_name": "London",
+                "state_name": "London",
+                "zip_code": "EC2Y 9ST",
+                "country_name": "United Kingdom",
+                "country_code": "GB",
+                "email_address": "denn@ukoloff.com",
+                "phone_number": "REDACTED FOR PRIVACY"
+            },
+            "technical_contact": {
+                "full_name": "Denis Ukolov",
+                "company_name": "Openweather Ltd.",
+                "mailing_address": "1 Ropemaker Street",
+                "city_name": "London",
+                "state_name": "London",
+                "zip_code": "EC2Y 9ST",
+                "country_name": "United Kingdom",
+                "country_code": "GB",
+                "email_address": "denn@ukoloff.com",
+                "phone_number": "REDACTED FOR PRIVACY"
+            },
+            "name_servers": [
+                "ns-1301.awsdns-34.org",
+                "ns-1842.awsdns-38.co.uk",
+                "ns-459.awsdns-57.com",
+                "ns-635.awsdns-15.net"
+            ],
+            "domain_status": [
+                "clientTransferProhibited"
+            ]
         }
-      ]
-    },
-    "isActive": true,
-    "joinedDate": "2018-05-10"
-  }
-  
+    ],
+    "api_execution_time": 0.01
+}
