@@ -1,6 +1,10 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-## Getting Started
+# Jsonizer
+
+Preview your JSON objects like you never did.
+
+<img width="1434" alt="Capture d’écran 2025-01-27 à 23 34 44" src="https://github.com/user-attachments/assets/8b6fccc3-619b-4892-b4a5-f92740c96ff4" />
+
 
 First, run the development server:
 
