@@ -16,7 +16,7 @@ import {
 
 import '@xyflow/react/dist/style.css';
 import CustomNode from './custom-node';
-import { RotateCcwIcon } from 'lucide-react';
+import { GithubIcon, MaximizeIcon, MinusIcon, PlusIcon, RotateCcwIcon } from 'lucide-react';
 import { ModeToggle } from '@/components/mode-toggle';
 import { Button } from '@/components/ui/button';
 import { useDropzoneContext } from '@/components/dropzone/dropzone-provider';
@@ -41,6 +41,7 @@ const getLayoutedElements = (nodes: any, edges: any, options = {}) => {
         id: 'root',
         layoutOptions: options,
         children: nodes.map((node: any) => {
+            const height = node.data.type == "image" ? 230 : 50 + Object.keys(node.data.data).length * 24
             return ({
                 ...node,
                 // Adjust the target and source handle positions based on the layout
@@ -50,7 +51,7 @@ const getLayoutedElements = (nodes: any, edges: any, options = {}) => {
 
                 // Hardcode a width and height for elk to use when layouting.
                 width: 330,
-                height: 50 + Object.keys(node.data.data).length * 24,
+                height: height,
             })
         }),
         edges: edges,
@@ -73,7 +74,7 @@ const getLayoutedElements = (nodes: any, edges: any, options = {}) => {
 function Flow({ nodes: initialNodes, edges: initialEdges }: { nodes: any, edges: any }) {
     const [nodes, setNodes, onNodesChange] = useNodesState(initialNodes);
     const [edges, setEdges, onEdgesChange] = useEdgesState(initialEdges);
-    const { fitView } = useReactFlow();
+    const { fitView, zoomIn, zoomOut } = useReactFlow();
     const { setOpenCommand, setShowEditor, showEditor } = useDropzoneContext()
 
     const onConnect = useCallback(
@@ -118,9 +119,9 @@ function Flow({ nodes: initialNodes, edges: initialEdges }: { nodes: any, edges:
         >
             <Panel className='bg-transparent' position="top-left">
                 <div className='flex items-center gap-1'>
-                    <Button onClick={() => setShowEditor(!showEditor)} variant="outline" className="text-sm text-muted-foreground">
+                    <Button onClick={() => setShowEditor(!showEditor)} variant="outline" className="text-sm">
                         {showEditor ? "Hide editor " : "Show editor "}
-                        <kbd className="pointer-events-none inline-flex h-5 select-none items-center gap-1 rounded border bg-muted px-1.5 font-mono text-[10px] font-medium text-muted-foreground opacity-100">
+                        <kbd className="pointer-events-none inline-flex h-5 select-none items-center gap-1 rounded border bg-muted px-1.5 font-mono text-[10px] font-medium opacity-100">
                             <span className="text-xs">⌘</span>k
                         </kbd>
                     </Button>
@@ -128,9 +129,9 @@ function Flow({ nodes: initialNodes, edges: initialEdges }: { nodes: any, edges:
             </Panel>
             <Panel className='bg-transparent' position="top-right">
                 <div className='flex items-center gap-1'>
-                    <Button onClick={() => setOpenCommand(true)} variant="outline" className="text-sm text-muted-foreground">
+                    <Button onClick={() => setOpenCommand(true)} variant="outline" className="text-sm">
                         Command{" "}
-                        <kbd className="pointer-events-none inline-flex h-5 select-none items-center gap-1 rounded border bg-muted px-1.5 font-mono text-[10px] font-medium text-muted-foreground opacity-100">
+                        <kbd className="pointer-events-none inline-flex h-5 select-none items-center gap-1 rounded border bg-muted px-1.5 font-mono text-[10px] font-medium opacity-100">
                             <span className="text-xs">⌘</span>J
                         </kbd>
                     </Button>
@@ -139,11 +140,29 @@ function Flow({ nodes: initialNodes, edges: initialEdges }: { nodes: any, edges:
                         <RotateCcwIcon className='h-3 w-3' />
                     </Button>
                     <ModeToggle />
+                    <a href={"https://github.com/reconurge/jsonizer"} target='_blank'>
+                        <Button variant="outline" size="icon" className='px-2 flex items-center gap-2'>
+                            <GithubIcon className='h-3 w-3' />
+                        </Button>
+                    </a>
+                </div>
+            </Panel>
+            <Background />
+            <Panel className='bg-transparent' position="bottom-left">
+                <div className='flex flex-col items-center gap-1'>
+                    <Button size={"icon"} onClick={() => fitView()} variant="outline">
+                        <MaximizeIcon className='h-3 w-3' />
+                    </Button>
+                    <Button size={"icon"} onClick={() => zoomIn()} variant="outline">
+                        <PlusIcon className='h-3 w-3' />
+                    </Button>
+                    <Button size={"icon"} onClick={() => zoomOut()} variant="outline">
+                        <MinusIcon className='h-3 w-3' />
+                    </Button>
                 </div>
             </Panel>
             <Background />
             <MiniMap maskColor='hsl(var(--background))' className='!bg-background shadow rounded-md border border-foreground/5' pannable zoomable position='bottom-right' nodeStrokeWidth={3} />
-            <Controls className='!bg-background' />
         </ReactFlow>
     );
 }

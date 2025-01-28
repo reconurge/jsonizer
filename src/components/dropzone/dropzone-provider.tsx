@@ -134,7 +134,7 @@ export const DropzoneProvider: React.FC<DropzoneProviderProps> = ({ children }) 
               </div>
               <div>
                 {error &&
-                  <div className="bg-destructive/10 text-destructive border border-destructive/80 px-2 py-1 rounded-md">{error}</div>}
+                  <div className="bg-destructive/10 text-white border border-destructive/80 px-2 py-1 rounded-md">{error}</div>}
               </div>
             </div>
             <div>

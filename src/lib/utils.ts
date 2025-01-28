@@ -43,3 +43,14 @@ export const fetchApi = async <T>(apiUrl: string | undefined): Promise<FetchResu
     }
   }
 };
+
+export async function isImageUrl(url: string): Promise<boolean> {
+  try {
+    const response = await axios.head(url); // HEAD request to check headers
+    const contentType = response.headers["content-type"];
+    return contentType?.startsWith("image/") || false;
+  } catch (error) {
+    console.error("Error checking URL:", error);
+    return false;
+  }
+}

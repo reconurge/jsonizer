@@ -1,7 +1,7 @@
 "use client"
 import React, { Dispatch, memo, SetStateAction, useState } from 'react';
 import { Handle, Position, useNodeId, useReactFlow } from '@xyflow/react';
-import { BracesIcon, BracketsIcon } from 'lucide-react';
+import { BracesIcon, BracketsIcon, ImageIcon } from 'lucide-react';
 import { Button } from "@/components/ui/button"
 import {
     Dialog,
@@ -20,8 +20,10 @@ import {
 } from "@/components/ui/context-menu"
 import { useTheme } from 'next-themes';
 import dynamic from 'next/dynamic';
+import Image from 'next/image';
 import { cn } from '@/lib/utils';
 const ReactJson = dynamic(() => import('react-json-view',), { ssr: false })
+
 
 export function NodeModal({ data, label, open, setOpen, theme }: { data: any, label: string, open: boolean, setOpen: Dispatch<SetStateAction<boolean>>, theme: string }) {
     return (
@@ -49,7 +51,8 @@ export function NodeModal({ data, label, open, setOpen, theme }: { data: any, la
 
 const icons = {
     "object": <BracesIcon className='h-4 w-4' />,
-    "array": <BracketsIcon className='h-4 w-4' />
+    "array": <BracketsIcon className='h-4 w-4' />,
+    "image": <ImageIcon className='h-4 w-4' />,
 }
 function CustomNode({ data }: { data: any }) {
     const { theme } = useTheme()
@@ -71,42 +74,46 @@ function CustomNode({ data }: { data: any }) {
                 <ContextMenuTrigger>
                     <div onClick={() => setOpen(true)} className={cn("shadow-md overflow-hidden rounded-sm w-auto h-full border-2 border-foreground/10", data.type === "array" ? "dark:bg-[#1E1E1E]/50 bg-[#1E1E1E]/5" : "dark:bg-[#1E1E1E]/50 bg-[#1E1E1E]/5")}>
                         <div className={cn('flex items-center border-b p-0 gap-2 border-foreground/10', data.type === "array" ? "dark:bg-[#1E1E1E]/60 bg-[#1E1E1E]/10" : "dark:bg-[#1E1E1E]/60 bg-[#1E1E1E]/10")}>
-                            <div>{icons[data.type as "object" | "array"] as any}</div>
+                            <div>{icons[data.type as "object" | "array" | "image"] as any}</div>
                             <div>{data.label}</div>
                         </div>
-                        <div className="flex p-2 flex-col">
-                            <ul>
-                                {data && data.data && typeof data.data === 'object' ? (
-                                    Object.keys(data.data).map((key, index) => {
-                                        if (typeof data.data[key] === "object" && !Array.isArray(data.data[key]))
+                        {data.type === "image" ? <div className="flex p-2 flex-col">
+                            <img alt='' src={data.data.src} className='h-[230px] w-[330px] object-contain' />
+                            {/* {JSON.stringify(data.data)} */}
+                        </div> :
+                            <div className="flex p-2 flex-col">
+                                <ul>
+                                    {data && data.data && typeof data.data === 'object' ? (
+                                        Object.keys(data.data).map((key, index) => {
+                                            if (typeof data.data[key] === "object" && !Array.isArray(data.data[key]))
+                                                return (
+                                                    <li className='flex flex-nowrap' key={index}>
+                                                        <span className='text-[#8DC4E2] italic font-semibold'>{key}</span>:<span className='font-semibold ml-1'><span className='rounded-full truncate text-ellipsis px-1 py-.5 border-cyan-500/80 bg-cyan-500/10 text-cyan-500 text-xs'>{data.data[key]?.value}</span><span className='text-orange-500 text-xs font-medium italic ml-1'>{typeof data.data[key]}</span></span>
+                                                    </li>
+                                                )
+                                            if (Array.isArray(data.data[key]))
+                                                return (
+                                                    <li className='flex flex-nowrap' key={index}>
+                                                        <span className='text-[#8DC4E2] italic font-semibold'>{key}</span>: <span className='font-semibold'><span className='truncate text-ellipsis rounded-full px-1 py-.5 border-purple-500/80 bg-purple-500/10 text-purple-500 text-xs'>{data.data[key][0]}</span><span className='text-orange-500 text-xs font-medium italic ml-1'>{"array"}</span></span>
+                                                    </li>
+                                                )
+                                            if (typeof data.data[key] === "boolean")
+                                                return (
+                                                    <li className='flex flex-nowrap' key={index}>
+                                                        <span className='text-[#8DC4E2] italic font-semibold'>{key}</span>: <span className='font-semibold'><span className='truncate text-ellipsis rounded-full px-1 py-.5 text-purple-500'>{Boolean(data.data[key]) ? "true" : "false"}</span><span className='text-orange-500 text-xs font-medium italic ml-1'>{"boolean"}</span></span>
+                                                    </li>
+                                                )
                                             return (
                                                 <li className='flex flex-nowrap' key={index}>
-                                                    <span className='text-[#8DC4E2]/80 italic font-semibold'>{key}</span>:<span className='font-semibold ml-1'><span className='rounded-full truncate text-ellipsis px-1 py-.5 border-cyan-500/80 bg-cyan-500/10 text-cyan-500 text-xs'>{data.data[key]?.value}</span><span className='text-orange-500 text-xs font-medium italic ml-1'>{typeof data.data[key]}</span></span>
+                                                    <span className='text-[#8DC4E2] italic font-semibold'>{key}</span>: <span className='font-semibold truncate text-ellipsis text-[#BC866F]'>{data.data[key]}<span className='text-xs font-medium italic ml-1'>{typeof data.data[key]}</span></span>
                                                 </li>
                                             )
-                                        if (Array.isArray(data.data[key]))
-                                            return (
-                                                <li className='flex flex-nowrap' key={index}>
-                                                    <span className='text-[#8DC4E2] italic font-semibold'>{key}</span>: <span className='font-semibold'><span className='truncate text-ellipsis rounded-full px-1 py-.5 border-purple-500/80 bg-purple-500/10 text-purple-500 text-xs'>{data.data[key][0]}</span><span className='text-orange-500 text-xs font-medium italic ml-1'>{"array"}</span></span>
-                                                </li>
-                                            )
-                                        if (typeof data.data[key] === "boolean")
-                                            return (
-                                                <li className='flex flex-nowrap' key={index}>
-                                                    <span className='text-[#8DC4E2] italic font-semibold'>{key}</span>: <span className='font-semibold'><span className='truncate text-ellipsis rounded-full px-1 py-.5 text-purple-500'>{Boolean(data.data[key]) ? "true" : "false"}</span><span className='text-orange-500 text-xs font-medium italic ml-1'>{"boolean"}</span></span>
-                                                </li>
-                                            )
-                                        return (
-                                            <li className='flex flex-nowrap' key={index}>
-                                                <span className='text-[#8DC4E2] italic font-semibold'>{key}</span>: <span className='font-semibold truncate text-ellipsis text-[#BC866F]'>{data.data[key]}<span className='text-xs font-medium italic ml-1'>{typeof data.data[key]}</span></span>
-                                            </li>
-                                        )
-                                    })
-                                ) : (
-                                    <li>{data?.value ?? 'No data available'}</li>
-                                )}
-                            </ul>
-                        </div>
+                                        })
+                                    ) : (
+                                        <li>{data?.value ?? 'No data available'}</li>
+                                    )}
+                                </ul>
+                            </div>}
                         <Handle
                             type="target"
                             position={Position.Top}
@@ -133,7 +140,7 @@ function CustomNode({ data }: { data: any }) {
                         <ContextMenuShortcut>⌘R</ContextMenuShortcut>
                     </ContextMenuItem> */}
                 </ContextMenuContent>
-            </ContextMenu>
+            </ContextMenu >
             <NodeModal theme={theme || "light"} open={open} data={data.data} label={data.label} setOpen={setOpen} />
         </>
     );
