@@ -35,7 +35,7 @@ interface DropzoneProviderProps {
 
 export const DropzoneProvider: React.FC<DropzoneProviderProps> = ({ children }) => {
   const [fileContents, setFileContents] = useLocalStorage<FileContent[]>('files', [{ name: "exemple.json", id: "example", content: example }]);
-  const [content, setContent] = useLocalStorage("editor-content", JSON.stringify(example))
+  const [content, setContent] = useLocalStorage("editor-content", example as any)
   const [isLoading, setIsLoading] = useState<boolean>(false)
   const [open, setOpenCommand] = React.useState(false)
   const [showEditor, setShowEditor] = useLocalStorage("show-editor", true)

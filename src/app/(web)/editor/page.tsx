@@ -27,7 +27,7 @@ export default function Page() {
             }
         }
         flow()
-    }, [content, setFlowlized, setError])
+    }, [content, setFlowlized, setError, flowlize])
 
     return (
         <ResizablePanelGroup
@@ -37,7 +37,7 @@ export default function Page() {
         >
             {showEditor &&
                 <ResizablePanel id="left" order={1} defaultSize={showEditor ? 40 : 0} className="h-screen p-0 border-none">
-                    <Editor className="border-none" theme={theme === "dark" ? "vs-dark" : "vs-light"} height="100vh" defaultLanguage="json" onChange={(e) => setContent(e || "")} value={content} />
+                    {content && <Editor className="border-none" theme={theme === "dark" ? "vs-dark" : "vs-light"} height="100vh" defaultLanguage="json" onChange={(e) => setContent(e || "")} value={content} defaultValue={content} />}
                 </ResizablePanel>}
             <ResizableHandle withHandle />
             {flowlized?.nodes && flowlized?.edges &&
