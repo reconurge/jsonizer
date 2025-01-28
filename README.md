@@ -3,7 +3,8 @@
 
 Preview your JSON objects like you never did.
 
-<img width="1434" alt="Capture d’écran 2025-01-27 à 23 34 44" src="https://github.com/user-attachments/assets/8b6fccc3-619b-4892-b4a5-f92740c96ff4" />
+![image](https://github.com/user-attachments/assets/f19a6cb3-6771-4c2f-8ed2-b717b9858f45)
+
 
 
 First, run the development server:
