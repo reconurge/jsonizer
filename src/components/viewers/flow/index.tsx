@@ -11,7 +11,6 @@ import {
     useEdgesState,
     useReactFlow,
     MiniMap,
-    Controls,
 } from '@xyflow/react';
 
 import '@xyflow/react/dist/style.css';

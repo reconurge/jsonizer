@@ -20,7 +20,6 @@ import {
 } from "@/components/ui/context-menu"
 import { useTheme } from 'next-themes';
 import dynamic from 'next/dynamic';
-import Image from 'next/image';
 import { cn } from '@/lib/utils';
 const ReactJson = dynamic(() => import('react-json-view',), { ssr: false })
 
