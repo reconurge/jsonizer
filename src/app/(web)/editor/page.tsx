@@ -21,7 +21,7 @@ export default function Page() {
         async function flow() {
             setError(null)
             try {
-                setFlowlized(await flowlize(JSON.parse(content)))
+                setFlowlized(await flowlize(content))
             } catch (e) {
                 setError(JSON.stringify(e))
             }
@@ -37,11 +37,11 @@ export default function Page() {
         >
             {showEditor &&
                 <ResizablePanel id="left" order={1} defaultSize={showEditor ? 40 : 0} className="h-screen p-0 border-none">
-                    {content && <Editor className="border-none" theme={theme === "dark" ? "vs-dark" : "vs-light"} height="100vh" defaultLanguage="json" onChange={(e) => setContent(e || "")} value={content} defaultValue={content} />}
+                    {content && <Editor className="border-none" theme={theme === "dark" ? "vs-dark" : "vs-light"} height="100vh" defaultLanguage="json" onChange={(e) => setContent(e || "")} value={JSON.stringify(content, null, 2)} defaultValue={""} />}
                 </ResizablePanel>}
             <ResizableHandle withHandle />
             {flowlized?.nodes && flowlized?.edges &&
-                < ResizablePanel id="right" order={3} defaultSize={60} className="h-screen border-black">
+                <ResizablePanel id="right" order={2} defaultSize={60} className="h-screen border-black">
                     {error ? <div className="h-full w-full flex items-center justify-center text-italic opacity-60">Your JSON tree will show here when it&apos;s nice and correct.</div> :
                         flowlized?.nodes && flowlized?.edges && <Flow nodes={flowlized.nodes} edges={flowlized.edges} />}
                 </ResizablePanel>
